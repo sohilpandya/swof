@@ -12,7 +12,9 @@ const initialState = {
     { name: "Cleo", lastWorked: null, workingToday: false, totalShifts: 0 },
   ],
   day: null,
-  TodaysEngineers: []
+  TodaysEngineers: [],
+  yesterdaysEngineers: [],
+  showListOfEngineers: false
 }
 
 export default initialState;
