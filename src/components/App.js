@@ -6,7 +6,7 @@ import getDay from '../utils/getDay';
 import getAvailableEngineers from '../utils/getAvailableEngineers';
 import initialState from '../data';
 import { log } from 'util';
-
+import firebase from '../firebase';
 
 class App extends Component {
 
@@ -17,6 +17,18 @@ class App extends Component {
   }
 
   render() {
+
+    const data = firebase.database().ref('state').once('value')
+      .then((snap) => {
+        console.log(snap.val());
+        return snap.val()
+      })
+      // , function (snap) {
+      //   console.log(snap.val())
+      // });
+
+      console.log(this.state);
+
     return (
       <div className="vh-100 bg-primary">
         <div className="fl w-100 vh-25">
@@ -72,10 +84,21 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      ...this.state,
-      day: getDay()
-    })
+    const data = firebase.database().ref('state').once('value')
+    .then((snap) => {
+        // if no data in firebase then set the state as below
+        if (snap) {
+          console.log(snap.val());
+          this.setState(snap.val(), () => { console.log('data saved from firebase')});
+        }
+        // else set state from firebase
+        else {
+          this.setState({
+            ...this.state,
+            day: getDay()
+          }, () => { console.log('data saved from local') })
+        }
+      })
   }
 
   getEmployeeNames = () => {
@@ -121,7 +144,10 @@ class App extends Component {
       ...this.state,
       TodaysEngineers: newTodaysEngineers,
       employees: newEmployeesState
-    }, () => { console.log('state has been updated') })
+    }, () => {
+      console.log('state has been updated')
+      firebase.database().ref('state').set(this.state)
+     })
 
   }
 }
