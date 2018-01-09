@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component shows intial information when firt loaded 1`] = `
+<div>
+  <h1>
+    Wheel Of Fate
+  </h1>
+  <h2>
+    List of Employees
+  </h2>
+  <li>
+    Sohil
+  </li>
+  <li>
+    Alex
+  </li>
+  <li>
+    Andrew
+  </li>
+  <li>
+    Joe
+  </li>
+  <li>
+    Rory
+  </li>
+  <li>
+    Mavis
+  </li>
+  <li>
+    June
+  </li>
+  <li>
+    Dan
+  </li>
+  <li>
+    Rose
+  </li>
+  <li>
+    Cleo
+  </li>
+  <div>
+    <button
+      onClick={[Function]}
+    >
+      Wheel of Fortune
+    </button>
+  </div>
+</div>
+`;
