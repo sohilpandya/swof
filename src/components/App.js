@@ -83,7 +83,7 @@ class App extends Component {
       return (
         <div className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center" key={i}>
             <div>{x.name}</div>
-            <div> No. Shifts {x.totalShifts}</div>
+            <div> Shifts: {x.totalShifts}</div>
         </div>
       )
     })
