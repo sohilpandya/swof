@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers}) => {
-console.log(showListOfEngineers, 'this is in todaysShift')
 
   return (
     <div className="fl w-100 vh-50 secondary">
