@@ -17,6 +17,7 @@ const initialState = {
   todaysEngineers: [],
   yesterdaysEngineers: [],
   showListOfEngineers: false,
+  workingDay: 0
 }
 
 export default initialState;
