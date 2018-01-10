@@ -2,13 +2,13 @@ import getAvailableEngineers from '../../utils/getAvailableEngineers';
 import initialState from '../../data';
 
 test('getAvailableEngineers returns correct list of engineers from initialState', () => {
-  expect(getAvailableEngineers(initialState.employees)).toEqual(initialState.employees);
+  expect(getAvailableEngineers(initialState.engineers, [])).toEqual(initialState.engineers);
 });
 
 
 test('getAvailableEngineers returns correct list when engineers have already worked shifts', () => {
 
-  const employees = [
+  const engineers = [
     { name: "Sohil", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "Alex", lastWorked: "Tuesday", workingToday: true, totalShifts: 0 },
     { name: "Andrew", lastWorked: null, workingToday: false, totalShifts: 0 },
@@ -32,5 +32,5 @@ test('getAvailableEngineers returns correct list when engineers have already wor
     { name: "Rose", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "Cleo", lastWorked: null, workingToday: false, totalShifts: 0 },
   ]
-  expect(getAvailableEngineers(employees)).toEqual(results);
+  expect(getAvailableEngineers(engineers, [])).toEqual(results);
 });

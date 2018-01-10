@@ -1,84 +1,32 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 import Clock from './Clock';
+import Header from './Header';
+import TodaysShifts from './TodaysShifts';
+import ListOfEngineers from './ListOfEngineers';
 
 import getDay from '../utils/getDay';
 import getAvailableEngineers from '../utils/getAvailableEngineers';
 import initialState from '../data';
-import { log } from 'util';
 import firebase from '../firebase';
 
 class App extends Component {
 
   constructor(props) {
     super(props)
-
     this.state = initialState;
   }
 
   render() {
-
-    const data = firebase.database().ref('state').once('value')
-      .then((snap) => {
-        console.log(snap.val());
-        return snap.val()
-      })
-      // , function (snap) {
-      //   console.log(snap.val())
-      // });
-
-      console.log(this.state);
-
     return (
       <div className="vh-100 bg-primary">
-        <div className="fl w-100 vh-25">
-          <p className="tc f1 b secondary mb0">Wheel Of Fate</p>
-          <Clock />
-        </div>
-
-        <div className="fl w-100 vh-50 secondary">
-          {
-            this.state.TodaysEngineers.length === 0 &&
-            <div>
-              <div className="w-50 tc bg-secondary-50 primary pa2 b pointer m-auto br3 dim"
-                    onClick={() => { this.generateShift() }}>
-                      Generate Shift
-                      <div className="f7"> please click here to generate the shifts for today </div>
-              </div>
-            </div>
-          }
-          <div className="fl w-50 vh-50 tc">
-            {
-              this.state.TodaysEngineers.length > 0 &&
-              <div>
-                { new Date().getHours() <= 13 && new Date().getHours >= 8 ?
-                  <div className="loading"></div> : <div className="empty-loading"></div>
-                }
-                <h2> Morning Shift </h2>
-                <h1> {this.state.TodaysEngineers[0].name} </h1>
-              </div>
-            }
-          </div>
-          <div className="fl w-50 vh-50 tc">
-            {
-              this.state.TodaysEngineers.length > 0 &&
-              <div>
-                { new Date().getHours() > 14 ?
-                  <div className="loading"></div> : <div className="empty-loading"></div>
-                }
-                <h2> Afternoon Shift </h2>
-                <h1> {this.state.TodaysEngineers[1].name} </h1>
-              </div>
-            }
-          </div>
-        </div>
-
-        <div className="fl w-100 vh-25 secondary">
-          <div className="flex justify-around flex-wrap h-100 b">
-            {this.getEmployeeNames()}
-          </div>
-        </div>
-
+        <Header title="Wheel of Fate" />
+        <TodaysShifts
+          showListOfEngineers={this.state.showListOfEngineers}
+          generateShift={this.generateShift}
+          todaysEngineers={this.state.todaysEngineers} />
+        <ListOfEngineers
+          engineers={this.state.engineers} />
       </div>
     );
   }
@@ -87,9 +35,30 @@ class App extends Component {
     const data = firebase.database().ref('state').once('value')
     .then((snap) => {
         // if no data in firebase then set the state as below
-        if (snap) {
-          console.log(snap.val());
-          this.setState(snap.val(), () => { console.log('data saved from firebase')});
+        if (snap.val()) {
+          let liveState = snap.val();
+      // if showListOfEngineers is true
+      // and getDay is not same as day
+      // then reset showListOfEngineers
+
+      // get all engineers and turn workingToday to false;
+          if(liveState.showListOfEngineers && liveState.day !== getDay()) {
+            let resetEngineers = liveState.engineers.map((engineer) => {
+              engineer.workingToday = false;
+              return engineer;
+            })
+
+            console.log('RESET ENGINEERS', resetEngineers);
+
+            this.setState({
+              ...snap.val(),
+              day: getDay(),
+              showListOfEngineers: false,
+              engineers: resetEngineers
+            }, () => { console.log('fired when new day')})
+          } else {
+            this.setState(liveState, () => { console.log('data saved from firebase'); firebase.database().ref('state').set(this.state)});
+          }
         }
         // else set state from firebase
         else {
@@ -99,29 +68,22 @@ class App extends Component {
           }, () => { console.log('data saved from local') })
         }
       })
-  }
 
-  getEmployeeNames = () => {
-    return this.state.employees.map((x,i) => {
-      return (
-        <div className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center" key={i}>
-            <div>{x.name}</div>
-            <div> Shifts: {x.totalShifts}</div>
-        </div>
-      )
-    })
+      // if the day is not the same as that in the state then update the database by resetting certain parts of user data and allow user to generate new shifts
   }
 
   generateShift = () => {
 
-    let newEmployeesState = this.state.employees;
+    let newEngineerState = this.state.engineers;
+    let yesterdaysEngineers = this.state.yesterdaysEngineers
     let newTodaysEngineers = [];
+    const todaysDate = new Date().getDate();
 
     for (var i = 0; i < 2; i++) {
-      let availableEngineers = getAvailableEngineers(newEmployeesState);
+      let availableEngineers = getAvailableEngineers(newEngineerState, yesterdaysEngineers);
       let rng = Math.floor(Math.random() * (availableEngineers.length))
       let engineer = availableEngineers[rng];
-      let engineerIndex = newEmployeesState.findIndex((x) => x.name === engineer.name)
+      let engineerIndex = newEngineerState.findIndex((x) => x.name === engineer.name)
       let newEngineerDetails = update(engineer, {
         $set: {
           name: engineer.name,
@@ -132,7 +94,7 @@ class App extends Component {
       })
 
       newTodaysEngineers.push(newEngineerDetails);
-      newEmployeesState = update(newEmployeesState, {
+      newEngineerState = update(newEngineerState, {
         $splice: [
           [engineerIndex, 1, newEngineerDetails]
         ]
@@ -142,8 +104,12 @@ class App extends Component {
 
     this.setState({
       ...this.state,
-      TodaysEngineers: newTodaysEngineers,
-      employees: newEmployeesState
+      todaysEngineers: newTodaysEngineers,
+      yesterdaysEngineers: this.state.todaysEngineers,
+      engineers: newEngineerState,
+      todaysDate: todaysDate, // set todays date
+      yesterdaysDate: this.state.todaysDate, // set todays date to yesterday,
+      showListOfEngineers: true
     }, () => {
       console.log('state has been updated')
       firebase.database().ref('state').set(this.state)

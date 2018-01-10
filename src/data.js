@@ -1,5 +1,5 @@
 const initialState = {
-  employees: [
+  engineers: [
     { name: "Sohil", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "Alex", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "Andrew", lastWorked: null, workingToday: false, totalShifts: 0 },
@@ -12,9 +12,12 @@ const initialState = {
     { name: "Cleo", lastWorked: null, workingToday: false, totalShifts: 0 },
   ],
   day: null,
-  TodaysEngineers: [],
+  todaysDate: null,
+  yesterdaysDate: null,
+  todaysEngineers: [],
   yesterdaysEngineers: [],
-  showListOfEngineers: false
+  showListOfEngineers: false,
+
 }
 
 export default initialState;
