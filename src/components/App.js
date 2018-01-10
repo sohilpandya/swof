@@ -20,16 +20,13 @@ class App extends Component {
     return (
       <div className="vh-100 bg-primary">
         <Header title="Wheel of Fate" />
-        <button
-          onClick={() => { this.generateShift() }}>
-          Click Me
-        </button>
         <TodaysShifts
           showListOfEngineers={this.state.showListOfEngineers}
           generateShift={this.generateShift}
           todaysEngineers={this.state.todaysEngineers} />
         <ListOfEngineers
-          engineers={this.state.engineers} />
+          engineers={this.state.engineers}
+          generateShift={this.generateShift} />
       </div>
     );
   }
