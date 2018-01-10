@@ -1,11 +1,12 @@
 import firebase from 'firebase';
+
 const config = {
-  apiKey: "AIzaSyD6XPWwbg4x6ygfL35mOERSsLmD4ofo8RM",
-  authDomain: "wheel-of-fortune-e397a.firebaseapp.com",
-  databaseURL: "https://wheel-of-fortune-e397a.firebaseio.com",
-  projectId: "wheel-of-fortune-e397a",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: "",
-  messagingSenderId: "893874543272"
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
 firebase.initializeApp(config);
 
