@@ -1,0 +1,129 @@
+@import "tachyons";
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,700,900');
+
+body {
+font-family: 'Raleway',
+sans-serif;
+}
+
+:root {
+  --primary-color: rgba(52, 73, 94, 1);
+  --primary-color-50: rgba(52, 73, 94, 0.5);
+  --secondary-color: rgba(236, 236, 236,1);
+  --secondary-color-50: rgba(236, 236, 236, 0.5);
+}
+
+.primary {
+  color: var(--primary-color);
+}
+
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.b--primary {
+  border-color: var(--primary-color);
+}
+
+.primary-50 {
+  color: var(--primary-color-50);
+}
+
+.bg-primary-50 {
+  background-color: var(--primary-color-50);
+}
+
+.b--primary-50 {
+  border-color: var(--primary-color-50);
+}
+
+.secondary {
+  color: var(--secondary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.b--secondary {
+  border-color: var(--secondary-color);
+}
+
+.secondary-50 {
+  color: var(--secondary-color-50);
+}
+
+.bg-secondary-50 {
+  background-color: var(--secondary-color-50);
+}
+
+.b--secondary-50 {
+  border-color: var(--secondary-color-50);
+}
+
+.m-auto {
+  margin: auto;
+}
+
+
+.empty-loading {
+  width: 70px;
+  height: 68px;
+}
+
+.loading {
+  background: rgba(236, 236,236, 0.5);
+  border: 1px solid rgba(236, 236, 236, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(236, 236, 236, 0.5);
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: auto;
+}
+
+.loading::before,
+.loading::after {
+  animation: loading-dots 1s infinite;
+  background: rgb(236, 236, 236);
+  border-radius: 63px;
+  content: "";
+  display: block;
+  width: 0px;
+  padding-left: 2rem;
+  margin: auto;
+  height: 33px;
+}
+
+.loading::before {
+  left: 10px;
+}
+
+.loading::after {
+  animation-delay: 0.5s;
+  right: 10px;
+}
+
+@keyframes loading-dots {
+  0% {
+    opacity: 1;
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

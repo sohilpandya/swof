@@ -1,0 +1,26 @@
+{
+  "name": "swof",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "chokidar-cli": "^1.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "firebase": "^4.8.1",
+    "immutability-helper": "^2.6.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.0.17",
+    "react-test-renderer": "^16.2.0",
+    "tachyons": "^4.9.1",
+    "tachyons-cli": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "tachyons src/css/app.css > src/css/index.css --minify",
+    "watch-css": "chokidar src/css/app.css -c 'npm run build-css'"
+  }
+}

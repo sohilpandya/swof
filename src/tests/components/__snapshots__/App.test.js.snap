@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component shows intial information when firt loaded 1`] = `
+<div
+  className="vh-100 bg-primary"
+>
+  <div
+    className="fl w-100 vh-25"
+  >
+    <p
+      className="tc f1 b secondary mb0"
+    >
+      Wheel Of Fate
+    </p>
+    <div
+      className="f2 secondary tc pa2"
+    >
+      15:19:20
+    </div>
+  </div>
+  <div
+    className="fl w-100 vh-50 secondary"
+  >
+    <div>
+      <div
+        className="w-50 tc bg-secondary-50 primary pa2 b pointer m-auto br3 dim"
+        onClick={[Function]}
+      >
+        Generate Shift
+        <div
+          className="f7"
+        >
+           please click here to generate the shifts for today 
+        </div>
+      </div>
+    </div>
+    <div
+      className="fl w-50 vh-50 tc"
+    />
+    <div
+      className="fl w-50 vh-50 tc"
+    />
+  </div>
+  <div
+    className="fl w-100 vh-25 secondary"
+  >
+    <div
+      className="flex justify-around flex-wrap h-100 b"
+    >
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Sohil
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Alex
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Andrew
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Joe
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Rory
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Mavis
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          June
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Dan
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Rose
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+      <div
+        className="flex flex-column flex-grow-1 bt b--secondary items-center justify-center"
+      >
+        <div>
+          Cleo
+        </div>
+        <div>
+           Shifts: 
+          0
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
