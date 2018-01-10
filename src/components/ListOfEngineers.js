@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListOfEngineers = ({engineers}) => {
+const ListOfEngineers = ({engineers, generateShift}) => {
 
   const getEngineerNames = () => {
     return engineers.map((x, i) => {
@@ -14,9 +14,16 @@ const ListOfEngineers = ({engineers}) => {
   }
 
   return (
-    <div className="fl w-100 vh-25 secondary">
-      <div className="flex justify-around flex-wrap h-100 b">
+    <div className="w-100 vh-25 secondary">
+      <div className="dn flex-ns justify-around-ns flex-wrap-ns h-50-ns b">
         {getEngineerNames()}
+      </div>
+      <div className="tc">
+        <p> Want to try and get through the whole 10 days of shifts without waiting 10 actual days! Click below to see it in action 😀</p>
+        <div className="w-50 tc bg-secondary-50 primary pa2 b pointer m-auto br3 dim"
+          onClick={() => { generateShift() }}>
+          Generate Next Shift
+        </div>
       </div>
     </div>
   );

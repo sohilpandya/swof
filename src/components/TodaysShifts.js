@@ -4,18 +4,18 @@ import React from 'react';
 const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers}) => {
 
   return (
-    <div className="fl w-100 vh-50 secondary">
+    <div className="flex vh-60 secondary">
       {
         !showListOfEngineers &&
         <div>
           <div className="w-50 tc bg-secondary-50 primary pa2 b pointer m-auto br3 dim"
             onClick={() => { generateShift() }}>
-            Generate Shift
+            Generate Today's Shift
                       <div className="f7"> please click here to generate the shifts for today </div>
           </div>
         </div>
       }
-      <div className="fl w-50 vh-50 tc">
+      <div className="w-50 vh-50 tc flex  justify-center items-center">
         {
           showListOfEngineers &&
           <div>
@@ -27,7 +27,7 @@ const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers}) => 
           </div>
         }
       </div>
-      <div className="fl w-50 vh-50 tc">
+      <div className="w-50 vh-50 tc flex  justify-center items-center">
         {
           showListOfEngineers &&
           <div>
