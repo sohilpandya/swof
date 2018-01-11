@@ -5,7 +5,36 @@ body {
 font-family: 'Raleway',
 sans-serif;
 }
+.morning-shift {
+  padding: 5px;
+  animation: left-to-right 1s 1;
+  animation-direction: alternate;
+}
 
+@keyframes left-to-right {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(45%, 250px);
+    opacity: 0;
+  }
+}
+.afternoon-shift {
+  padding: 5px;
+  animation: right-to-left 1s 1;
+  animation-direction: alternate;
+}
+
+@keyframes right-to-left {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-45%, 250px);
+    opacity: 0;
+  }
+}
 :root {
   --primary-color: rgba(52, 73, 94, 1);
   --primary-color-50: rgba(52, 73, 94, 0.5);
@@ -19,6 +48,18 @@ sans-serif;
 
 .vh-15 {
   height: 15vh;
+}
+
+.vh-10 {
+  height: 10vh;
+}
+
+.flex-basis-100 {
+  flex-basis: 100%
+}
+
+.flex-basis-50 {
+  flex-basis: 50%
 }
 
 .primary {

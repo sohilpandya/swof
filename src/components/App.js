@@ -23,10 +23,15 @@ class App extends Component {
         <TodaysShifts
           showListOfEngineers={this.state.showListOfEngineers}
           generateShift={this.generateShift}
-          todaysEngineers={this.state.todaysEngineers} />
+          todaysEngineers={this.state.todaysEngineers}
+          yesterdaysEngineers={this.state.yesterdaysEngineers}
+          buttonClicked={this.buttonClicked}
+          buttonClickedState={this.state.buttonClicked} />
         <ListOfEngineers
           engineers={this.state.engineers}
-          generateShift={this.generateShift} />
+          generateShift={this.generateShift}
+          buttonClicked={this.buttonClicked}
+          buttonClickedState={this.state.buttonClicked} />
       </div>
     );
   }
@@ -80,10 +85,20 @@ class App extends Component {
       todaysDate: generatedData.todaysDate, // set todays date
       yesterdaysDate: this.state.todaysDate, // set todays date to yesterday,
       showListOfEngineers: true,
-      workingDay: newWorkingDayNumber
+      workingDay: newWorkingDayNumber,
+      buttonClicked: true
     }, () => {
-      saveEngineers(this.state)
+      saveEngineers(this.state);
      })
+  }
+
+  buttonClicked = () => {
+    this.setState({
+      ...this.state,
+      buttonClicked: false
+    }, () => {
+      saveEngineers(this.state);
+    })
   }
 }
 
