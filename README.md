@@ -39,6 +39,7 @@ npm run test // runs the app locally
 | ![screen shot 2018-01-11 at 13 04 30](https://user-images.githubusercontent.com/2305591/34826841-0f56d258-f6d0-11e7-9e7e-7a72e5113f4f.png) |
 
 **Process**
+
 You can view my process by having a look at the list of issues (open/closed) alongside having a look at my commit history. They should tell you a coherent story about how I went about building the app.
 
 | Issues | PR | Commit |
@@ -48,6 +49,7 @@ You can view my process by having a look at the list of issues (open/closed) alo
 _Very happy to receive feedback, please create an issue [here](https://github.com/sohilpandya/swof/issues/new)_
 
 **Future**
+
 Who knows what the future holds, there are a lot of things that need to be done to improve the experience
 - Refactor the app further
 - Provide historical information to users
