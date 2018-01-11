@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers, yesterdaysEngineers, buttonClicked, buttonClickedState}) => {
-  console.log(buttonClickedState)
   return (
     <div className="vh-60">
       <div className="flex vh-50 secondary">
