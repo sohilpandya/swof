@@ -17,7 +17,8 @@ const initialState = {
   todaysEngineers: [],
   yesterdaysEngineers: [],
   showListOfEngineers: false,
-  workingDay: 0
+  workingDay: 0,
+  buttonClicked: false
 }
 
 export default initialState;
