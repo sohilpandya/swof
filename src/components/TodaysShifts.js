@@ -33,7 +33,7 @@ const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers, yest
               </div>
               <div className={`${buttonClickedState ? 'afternoon-shift' : ''} w-50 vh-50 tc flex  justify-center items-center`}>
                 <div>
-                  {new Date().getHours() > 14 ?
+                  {new Date().getHours() > 13 ?
                     <div className="loading"></div> : <div className="empty-loading"></div>
                   }
                   <p className="f3 b"> Afternoon </p>
