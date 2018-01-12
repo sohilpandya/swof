@@ -8,8 +8,4 @@ test('generateShiftData returns correct list of engineers from initialState', ()
   expect(shiftData.newTodaysEngineers.length).toEqual(2)
   expect(shiftData.todaysDate).toEqual(new Date().getDate())
 
-  Object.keys((obj) => {
-    console.log(obj, '<<<<<')
-    expect(obj).toEqual('blah')
-  })
 });
