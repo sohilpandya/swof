@@ -26,7 +26,11 @@ This app allows you to generate a shift per day. For testing purposes, we also h
 | Tachyons | _Styling_ |
 
 **Run the app locally**
+
 In order to run the app locally please follow the following steps (you need to have `node` installed):
+
+** You will need a `.env` file with some variables. Please email/make an issue if you would like access to these in order to run the app locally.**
+
 ```
 git clone https://github.com/sohilpandya/swof.git
 cd swof
