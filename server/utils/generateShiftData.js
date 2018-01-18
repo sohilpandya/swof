@@ -1,5 +1,5 @@
-import update from 'immutability-helper';
-import getAvailableEngineers from './getAvailableEngineers'; // function that returns available engineers
+var update = require('immutability-helper');
+var getAvailableEngineers = require('./getAvailableEngineers'); // function that returns available engineers
 
 const generateShiftData = (state) => {
 
@@ -46,4 +46,4 @@ const generateShiftData = (state) => {
   }
 }
 
-export default generateShiftData;
+module.exports = generateShiftData;

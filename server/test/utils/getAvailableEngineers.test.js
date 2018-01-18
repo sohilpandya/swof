@@ -1,12 +1,14 @@
-import getAvailableEngineers from '../../utils/getAvailableEngineers';
-import initialState from '../../db/data';
+var getAvailableEngineers = require('../../utils/getAvailableEngineers');
+var initialState = require('../data');
+var test = require('tape');
 
-test('getAvailableEngineers returns correct list of engineers from initialState', () => {
-  expect(getAvailableEngineers(initialState.engineers, [])).toEqual(initialState.engineers);
+test('getAvailableEngineers returns correct list of engineers from initialState', (t) => {
+  t.deepEqual(getAvailableEngineers(initialState.engineers, []), initialState.engineers);
+  t.end();
 });
 
 
-test('getAvailableEngineers returns correct list when engineers have already worked shifts', () => {
+test('getAvailableEngineers returns correct list when engineers have already worked shifts', (t) => {
 
   const engineers = [
     { name: "Sohil", lastWorked: null, workingToday: false, totalShifts: 0 },
@@ -30,11 +32,14 @@ test('getAvailableEngineers returns correct list when engineers have already wor
     { name: "Rose", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "Cleo", lastWorked: null, workingToday: false, totalShifts: 0 },
   ]
-  expect(getAvailableEngineers(engineers, [{ name: "Joe", lastWorked: null, workingToday: false, totalShifts: 0 },
-    { name: "Rory", lastWorked: null, workingToday: false, totalShifts: 0 }])).toEqual(results);
+
+  t.deepEqual(getAvailableEngineers(engineers, [{ name: "Joe", lastWorked: null, workingToday: false, totalShifts: 0 },
+    { name: "Rory", lastWorked: null, workingToday: false, totalShifts: 0 }]), results);
+  t.end();
+
 });
 
-test('getAvailableEngineers returns correct list when engineers have already worked shifts and others have already done two shifts', () => {
+test('getAvailableEngineers returns correct list when engineers have already worked shifts and others have already done two shifts', (t) => {
 
   const engineers = [
     { name: "Sohil", lastWorked: null, workingToday: false, totalShifts: 0 },
@@ -55,6 +60,15 @@ test('getAvailableEngineers returns correct list when engineers have already wor
     { name: "Mavis", lastWorked: null, workingToday: false, totalShifts: 0 },
     { name: "June", lastWorked: null, workingToday: false, totalShifts: 0 },
   ]
-  expect(getAvailableEngineers(engineers, [{ name: "Joe", lastWorked: null, workingToday: false, totalShifts: 0 },
-    { name: "Rory", lastWorked: null, workingToday: false, totalShifts: 0 }])).toEqual(results);
+
+  t.deepEqual(getAvailableEngineers(engineers, [{ name: "Joe", lastWorked: null, workingToday: false, totalShifts: 0 },
+    { name: "Rory", lastWorked: null, workingToday: false, totalShifts: 0 }]), results);
+  t.end();
+
 });
+
+
+test('SUMMARY', function (t) {
+  t.end();
+  process.exit(0)
+})
