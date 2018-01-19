@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+const firebase = require('firebase');
 
 const config = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -10,4 +10,4 @@ const config = {
 };
 firebase.initializeApp(config);
 
-export default firebase;
+module.exports = firebase;

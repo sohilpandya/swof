@@ -4,10 +4,10 @@ import TodaysShifts from './TodaysShifts';
 import ListOfEngineers from './ListOfEngineers';
 
 import getDay from '../utils/getDay';
-import generateShiftData from '../utils/generateShiftData';
 
-import initialState from '../db/data'; //initial state can be found here
-import { getEngineers, saveEngineers } from '../db/getEngineers';
+import initialState from '../apiCall/data'; //initial state can be found here
+import shift from '../apiCall/shift'; //initial state can be found here
+import { getEngineers, saveEngineers } from '../apiCall/engineers';
 
 class App extends Component {
 
@@ -61,10 +61,11 @@ class App extends Component {
         );
       }
     })
-    .catch((error) => {  // set it from local data if nothing exists on firebase
+    .catch((error = "Oops Something Went Wrong!") => {  // set it from local data if nothing exists on firebase
       this.setState({
         ...this.state,
-        day: getDay()
+        day: getDay(),
+        error: error
       }, () => {
         saveEngineers(this.state);
       })
@@ -72,24 +73,18 @@ class App extends Component {
   }
 
   generateShift = () => {
-
-    const generatedData = generateShiftData(this.state);
-    let workingDay = this.state.workingDay;
-    const newWorkingDayNumber = workingDay === 10 ? 1 : ++workingDay;
-
-    this.setState({
-      ...this.state,
-      todaysEngineers: generatedData.newTodaysEngineers,
-      yesterdaysEngineers: this.state.todaysEngineers,
-      engineers: generatedData.newEngineerState,
-      todaysDate: generatedData.todaysDate, // set todays date
-      yesterdaysDate: this.state.todaysDate, // set todays date to yesterday,
-      showListOfEngineers: true,
-      workingDay: newWorkingDayNumber,
-      buttonClicked: true
-    }, () => {
-      saveEngineers(this.state);
-     })
+    shift(this.state)
+      .then((generatedData) => {
+        this.setState({
+          ...generatedData
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          ...this.state,
+          error: error
+        })
+      });
   }
 
   buttonClicked = () => {

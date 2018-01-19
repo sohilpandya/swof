@@ -1,4 +1,4 @@
-import firebase from './firebase';
+const firebase = require('./firebase');
 
 const getEngineers = new Promise((resolve, reject) => {
 
@@ -17,8 +17,9 @@ const getEngineers = new Promise((resolve, reject) => {
 
 const saveEngineers = (newState) => new Promise((resolve, reject) => {
   firebase.database().ref('state').set(newState)
+    .then((res) => resolve('data saved'))
+    .catch((error) => reject(error));
 })
 
-
-export { getEngineers, saveEngineers };
+module.exports = { getEngineers, saveEngineers };
 

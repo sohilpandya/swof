@@ -16,4 +16,4 @@ const getAvailableEngineers = (newEmployeesState, yesterdaysEmployees) => {
   })
 }
 
-export default getAvailableEngineers;
+module.exports = getAvailableEngineers;
