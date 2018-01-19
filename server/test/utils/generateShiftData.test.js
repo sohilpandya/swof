@@ -1,6 +1,6 @@
-var generateShiftData = require('../../utils/generateShiftData');
-var initialState = require('../data');
-var test = require('tape');
+const generateShiftData = require('../../utils/generateShiftData');
+const initialState = require('../data');
+const test = require('tape');
 
 test('generateShiftData returns correct list of engineers from initialState', (t) => {
   let shiftData = generateShiftData(initialState);

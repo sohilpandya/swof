@@ -1,5 +1,5 @@
-var update = require('immutability-helper');
-var getAvailableEngineers = require('./getAvailableEngineers'); // function that returns available engineers
+const update = require('immutability-helper');
+const getAvailableEngineers = require('./getAvailableEngineers'); // function that returns available engineers
 
 const generateShiftData = (state) => {
 
@@ -15,7 +15,7 @@ const generateShiftData = (state) => {
   let newTodaysEngineers = [];
   const todaysDate = new Date().getDate();
 
-  for (var i = 0; i < 2; i++) {
+  for (let i = 0; i < 2; i++) {
     let availableEngineers = getAvailableEngineers(newEngineerState, yesterdaysEngineers);
     let rng = Math.floor(Math.random() * (availableEngineers.length))
     let engineer = availableEngineers[rng];

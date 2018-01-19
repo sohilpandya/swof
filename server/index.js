@@ -5,13 +5,13 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 
-var engineersRoute = require('./routes/engineers')
-var shiftRoute = require('./routes/shift')
+const engineersRoute = require('./routes/engineers')
+const shiftRoute = require('./routes/shift')
 
 
 app.use(bodyParser.json());
 
-app.use('/myapp', express.static(path.resolve(__dirname, '../build')));
+app.use('/swof', express.static(path.resolve(__dirname, '../build')));
 app.use('/engineers', engineersRoute);
 app.use('/shift', shiftRoute);
 

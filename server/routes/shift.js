@@ -1,16 +1,17 @@
-var express = require('express');
-var router = express.Router();
-var { saveEngineers } = require('../db/engineers');
-var generateShiftData = require('../utils/generateShiftData');
+const express = require('express');
+const router = express.Router();
+const { saveEngineers } = require('../db/engineers');
+const generateShiftData = require('../utils/generateShiftData');
 
-router.post('/', function (req, res) {
-  var state = req.body;
+router.post('/',(req, res) => {
+
+  const state = req.body;
   // run calculations and create new state then save engineers and return new state
-  var generatedData = generateShiftData(state);
-  var workingDay = state.workingDay;
-  var newWorkingDayNumber = workingDay === 10 ? 1 : ++workingDay;
+  const generatedData = generateShiftData(state);
+  let workingDay = state.workingDay;
+  const newWorkingDayNumber = workingDay === 10 ? 1 : ++workingDay;
 
-  var combinedState = {
+  const combinedState = {
     ...state,
     todaysEngineers: generatedData.newTodaysEngineers,
     yesterdaysEngineers: state.todaysEngineers,

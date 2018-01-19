@@ -10,8 +10,8 @@ const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers, yest
           <div className="w-100 flex justify-center items-center" >
             <div className="w-50 tc bg-secondary-50 primary pa2 b pointer m-auto br3 dim"
               onClick={() => { generateShift(); setTimeout(() => { buttonClicked() }, 1000) }}>
-              Generate Today's Shift
-                        <div className="f7"> please click here to generate the shifts for today </div>
+              Generate Today&#x27;s Shift
+              <div className="f7"> please click here to generate the shifts for today </div>
             </div>
           </div>
         }
@@ -19,7 +19,7 @@ const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers, yest
           showListOfEngineers &&
           <div className="flex flex-column w-100">
             <div>
-              <p className="tc f2 b ma0"> Today's shifts </p>
+              <p className="tc f2 b ma0"> Today&#x27;s shifts </p>
             </div>
             <div className="flex w-100">
               <div className={`${buttonClickedState ? 'morning-shift' : ''} w-50 vh-50 tc flex  justify-center items-center`}>
@@ -48,7 +48,7 @@ const TodaysShifts = ({showListOfEngineers, generateShift, todaysEngineers, yest
       yesterdaysEngineers.length > 1 &&
       <div className="vh10 secondary flex flex-column">
         <div>
-          <p className="tc f4 b ma0"> Yesterday's shifts </p>
+          <p className="tc f4 b ma0"> Yesterday&#x27;s shifts </p>
         </div>
         <div className="flex">
           <div className="w-50 tr pr3">

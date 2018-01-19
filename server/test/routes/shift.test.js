@@ -1,11 +1,11 @@
-var test = require('tape');
-var request = require('supertest');
-var app = require('../../index');
-var data = require('../data');
+const test = require('tape');
+const request = require('supertest');
+const app = require('../../index');
+const data = require('../data');
 
 const server = request.agent(app);
 
-test('/shift post request should return a status of 201', t => {
+test('/shift post request should return a status of 201', (t) => {
   const payload = data;
   server
     .post('/shift')

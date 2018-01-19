@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var { getEngineers, saveEngineers } = require('../db/engineers');
+const express = require('express');
+const router = express.Router();
+const { getEngineers, saveEngineers } = require('../db/engineers');
 
-router.get('/', function (req, res) {
+router.get('/',(req, res) => {
   getEngineers
     .then((liveState) => {
       res.json(liveState);
@@ -13,8 +13,8 @@ router.get('/', function (req, res) {
   })
 
 
-router.post('/', function (req, res) {
-  var newState = req.body;
+router.post('/',(req, res) => {
+  const newState = req.body;
 
 
   saveEngineers(newState)

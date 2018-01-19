@@ -1,6 +1,6 @@
-var getAvailableEngineers = require('../../utils/getAvailableEngineers');
-var initialState = require('../data');
-var test = require('tape');
+const getAvailableEngineers = require('../../utils/getAvailableEngineers');
+const initialState = require('../data');
+const test = require('tape');
 
 test('getAvailableEngineers returns correct list of engineers from initialState', (t) => {
   t.deepEqual(getAvailableEngineers(initialState.engineers, []), initialState.engineers);
@@ -68,7 +68,7 @@ test('getAvailableEngineers returns correct list when engineers have already wor
 });
 
 
-test('SUMMARY', function (t) {
+test('end the tests', (t) => {
   t.end();
   process.exit(0)
 })

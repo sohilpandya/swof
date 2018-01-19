@@ -36,11 +36,11 @@ git clone https://github.com/sohilpandya/swof.git
 cd swof
 npm i
 npm run start // starts the app locally
-npm run test // runs the app locally
+npm run test // runs the tests
 ```
 | Tests (unit tests and snapshot test) |
 | --- |
-| ![screen shot 2018-01-11 at 13 04 30](https://user-images.githubusercontent.com/2305591/34826841-0f56d258-f6d0-11e7-9e7e-7a72e5113f4f.png) |
+| ![screen shot 2018-01-11 at 13 04 30](https://user-images.githubusercontent.com/2305591/35150247-99c39240-fd11-11e7-8d11-70445b04bebb.png) |
 
 **Process**
 
