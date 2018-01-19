@@ -31,7 +31,8 @@
     "test:server": "node_modules/.bin/tape server/test/index.js | tap-spec",
     "eject": "react-scripts eject",
     "build-css": "tachyons src/css/app.css > src/css/index.css --minify",
-    "watch-css": "chokidar src/css/app.css -c 'npm run build-css'"
+    "watch-css": "chokidar src/css/app.css -c 'npm run build-css'",
+    "heroku-postbuild": "npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "proxy": "http://localhost:4000",
   "homepage": "/swof",
